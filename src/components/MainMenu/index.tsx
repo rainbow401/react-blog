@@ -77,7 +77,7 @@ const items: MenuItem[] = [
 const MainMenu: React.FC = () => {
   const navigateTo = useNavigate();
   const currentRoute = useLocation();
-  console.log(currentRoute)
+  // console.log(currentRoute)
   const menuClick = (e: { key: string }) => {
     console.log("点击了菜单" + e.key, e)
     // 点击跳转到对应的路由 编程式导航跳转
@@ -85,19 +85,16 @@ const MainMenu: React.FC = () => {
   }
 
 
-  const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+  let firstOpenKey: string = '';
 
-  const [openKeys, setOpenKeys] = useState(['sub1']);
+  const [openKeys, setOpenKeys] = useState([firstOpenKey]);
 
-  const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
-    // 菜单折叠收起
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-    }
+
+  const onOpenChange: MenuProps['onOpenChange'] = (keys: string[]) => {
+    console.log(keys);
+    setOpenKeys([keys[keys.length - 1]]);
   };
+
   return (
     <Menu theme="dark"
           defaultSelectedKeys={[currentRoute.pathname]}
