@@ -1,9 +1,9 @@
-function About() {
+function Page1() {
   return(
     <div className={"home"}>
-      <p>这是about组件</p>
+      <p>这是Page1组件</p>
     </div>
   )
 }
 
-export default About
+export default Page1

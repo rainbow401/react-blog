@@ -1,9 +1,9 @@
-function Page1() {
+function Page2() {
   return(
     <div className={"home"}>
-      <p>这是Page1组件</p>
+      <p>这是Page2组件</p>
     </div>
   )
 }
 
-export default Page1
+export default Page2
