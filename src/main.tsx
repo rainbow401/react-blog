@@ -13,11 +13,11 @@ import {BrowserRouter} from "react-router-dom"
 // import Router from "./router"
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <React.Suspense>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </React.Suspense>
-  </React.StrictMode>,
+  // </React.StrictMode>,
 )
