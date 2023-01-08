@@ -10,10 +10,12 @@ let reducer = (state = defaultState, action: { type: string, val: number }) => {
 
   switch (action.type) {
     case handleNum.add1: {
+      // @ts-ignore
       handleNum.actions[handleNum.add1](newState, action)
       break;
     }
     case handleNum.add2: {
+      // @ts-ignore
       handleNum.actions[handleNum.add2](newState, action)
       break;
     }
