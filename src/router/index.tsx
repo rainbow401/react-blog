@@ -4,6 +4,7 @@ import {Navigate} from "react-router-dom"
 import React, {lazy} from "react"
 import Page301 from "@/views/Page301";
 // import User from "@/views/User";
+import Login from "@/views/login"
 
 const About = lazy(() => import("../views/About"))
 const User = lazy(() => import("../views/User"))
@@ -33,10 +34,16 @@ const routes = [
         element: <Page301/>
       },
     ]
-  }, {
+  },
+  {
+    path: '/login',
+    element: <Login/>
+  },
+  {
     path: "*",
     element: <Navigate to={"/page1"}></Navigate>
-  }
+  },
+
   // {
   //   path: "/about",
   //   element: <About/>

@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, Suspense} from 'react'
 import Comp1 from "@/components/Comp1"
 import Comp2 from "@/components/Comp2";
 import {Button} from "antd";

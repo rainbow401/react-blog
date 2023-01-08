@@ -11,13 +11,18 @@ import "@/assets/style/global.scss"
 import App from './App'
 import {BrowserRouter} from "react-router-dom"
 // import Router from "./router"
+// 状态管理
+import {Provider} from 'react-redux'
+import store from '@/store'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>
+  <Provider store={store}>
     <React.Suspense>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </React.Suspense>
+  </Provider>
   // </React.StrictMode>,
 )

@@ -2,9 +2,20 @@ import React, {useState} from 'react';
 import {Menu, MenuProps} from "antd";
 import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from "@ant-design/icons";
 import {useNavigate, useLocation} from "react-router-dom";
+import {SubMenuType} from "antd/es/menu/hooks/useItems";
 
-type MenuItem = Required<MenuProps>['items'][number];
-//
+type MenuItem = {
+  label: string,
+  key: string,
+  icon: any,
+  children?: SubMenuItem[]
+}
+
+type SubMenuItem = {
+  label: string,
+  key: string,
+}
+
 // function getItem(
 //   label: React.ReactNode,
 //   key: React.Key,
@@ -86,12 +97,13 @@ const MainMenu: React.FC = () => {
 
 
   let firstOpenKey: string = '';
-
+  const strings = currentRoute.pathname.split('/');
+  if (strings.length > 2) {
+    firstOpenKey = '/' + strings[1];
+  }
   const [openKeys, setOpenKeys] = useState([firstOpenKey]);
 
-
   const onOpenChange: MenuProps['onOpenChange'] = (keys: string[]) => {
-    console.log(keys);
     setOpenKeys([keys[keys.length - 1]]);
   };
 

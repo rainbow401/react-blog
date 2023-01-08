@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, Suspense} from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
@@ -41,7 +41,9 @@ const App: React.FC = () => {
           </Breadcrumb>
           {/*右侧中心内容*/}
           <div style={{padding: 24, minHeight: 360, background: colorBgContainer}}>
-            <Outlet/>
+            <Suspense>
+              <Outlet/>
+            </Suspense>
           </div>
         </Content>
         {/*右侧底部*/}
