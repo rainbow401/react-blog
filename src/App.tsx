@@ -1,11 +1,6 @@
-import {useState, Suspense} from 'react'
-import Comp1 from "@/components/Comp1"
-import Comp2 from "@/components/Comp2";
-import {Button} from "antd";
-import {StepBackwardOutlined} from "@ant-design/icons";
-import {useRoutes, Link, Outlet} from "react-router-dom";
+import {useState} from 'react'
+import {useRoutes} from "react-router-dom";
 import router from "./router"
-import Home from "@/views/Home";
 
 function App() {
   const [count, setCount] = useState(0)

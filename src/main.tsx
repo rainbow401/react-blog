@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom/client'
 import "reset-css"
 
 //UI框架
-
 // 全局样式
 import "@/assets/style/global.scss"
 // 组件样式

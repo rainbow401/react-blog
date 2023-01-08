@@ -1,15 +1,6 @@
-import React, {useState, Suspense} from 'react';
-import {
-  DesktopOutlined,
-  FileOutlined,
-  PieChartOutlined,
-  TeamOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
-import type {MenuProps} from 'antd';
-import {Breadcrumb, Layout, Menu, theme} from 'antd';
-import {useNavigate, useRoutes, Outlet} from "react-router-dom";
-import router from "@/router";
+import React, {Suspense, useState} from 'react';
+import {Breadcrumb, Layout, theme} from 'antd';
+import {Outlet} from "react-router-dom";
 import MainMenu from "@/components/MainMenu";
 
 const {Header, Content, Footer, Sider} = Layout;
