@@ -15,7 +15,7 @@ const Page2 = lazy(() => import("../views/Page2"))
 const routes = [
   {
     path: "/",
-    element: <Navigate to={"/page1"}></Navigate>
+    element: <Navigate to={"/login"}></Navigate>
   },
   {
     path: "/",

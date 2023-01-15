@@ -10,6 +10,8 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
+    // 对象[]取值警告
+    "suppressImplicitAnyIndexErrors": true,
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,

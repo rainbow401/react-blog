@@ -4,6 +4,8 @@ import initLoginBg from "@/views/login/init.ts";
 import "./login.less"
 import {Button, Input, Space} from "antd";
 
+import {CaptchaAPI} from '@/request/api'
+
 const Login: React.FC = () => {
 
   useEffect(() => {
@@ -29,6 +31,11 @@ const Login: React.FC = () => {
     console.log('登陆',username, password, captcha)
   }
 
+  const getCaptchaImg = async () => {
+    let captchaAPIRes: CaptchaAPIRes = await CaptchaAPI();
+    console.log(captchaAPIRes);
+  }
+
   return (
     <div className={styles.loginPage}>
       {/*背景图片*/}
@@ -44,10 +51,12 @@ const Login: React.FC = () => {
         <div className={'form'}>
           <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
             <Input placeholder={'用户名'} onChange={usernameChange}></Input>
-            <Input.Password placeholder="密码" onChange={passwordChange}/>
+            <form>
+              <Input.Password placeholder="密码" autoComplete={'off'} onChange={passwordChange}/>
+            </form>
             <div className={'captchaBox'}>
               <Input placeholder={'验证码'} onChange={captchaChange}></Input>
-              <div className={'captchaImg'}>
+              <div className={'captchaImg'} onClick={getCaptchaImg}>
                 <img src={'https://img1.baidu.com/it/u=1070984255,945844267&fm=253&fmt=auto&app=138&f=PNG?w=491&h=236'} style={{height: '100%', width:80}} alt={''}></img>
               </div>
             </div>
