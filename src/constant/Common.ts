@@ -1,0 +1,1 @@
+export const HTML_BASE64_PNG: string = 'data:image/png;base64,'

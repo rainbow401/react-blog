@@ -1,6 +1,6 @@
 import React from "react";
 import {useSelector, useDispatch} from 'react-redux'
-import {Button} from "antd";
+import {Button, message} from "antd";
 // import NumStatus from "@/store/ArrayStatus/reducer";
 import numStatus from "@/store/NumStatus";
 
@@ -19,7 +19,7 @@ const Page1: React.FC = () => {
     dispatch({type:'add2', val: 300})
   }
   const changeNum2 = () => {
-    // numStatus.asyncActions.asyncAdd1(dispatch)
+    numStatus.asyncActions.asyncAdd1(dispatch);
     // dispatch(numStatus.asyncActions.asyncAdd1)
     // dispatch(({type: 'add1'}) => )
   }
@@ -36,7 +36,6 @@ const Page1: React.FC = () => {
       <p>{num}</p>
       <Button onClick={changeNum}>同步按钮</Button>
       <Button onClick={changeNum2}>异步按钮</Button>
-
       <p>{sarr}</p>
     </div>
   )

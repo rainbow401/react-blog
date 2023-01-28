@@ -16,8 +16,8 @@ export default {
     //     dispatch({type: 'add1'})
     //   }, 1000)
     // }
-    asyncAdd1: function () {
-      setTimeout((dispatch: Function) => {
+    asyncAdd1: function (dispatch : Function) {
+      setTimeout(() => {
         console.log(11112321321)
         dispatch({type: 'add1'})
       }, 1000)
