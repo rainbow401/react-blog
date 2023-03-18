@@ -1,7 +1,6 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import styles from "./login.module.scss"
-import initLoginBg from "@/views/login/init.ts";
 import "./login.less"
 import {Button, Input, Space, message} from "antd";
 
@@ -11,10 +10,6 @@ import {HTML_BASE64_PNG} from '@/constant/Common'
 const Login: React.FC = () => {
 
   useEffect(() => {
-    initLoginBg();
-    window.onresize = function () {
-      initLoginBg()
-    };
     getCaptchaImg();
   }, [])
 
@@ -73,19 +68,20 @@ const Login: React.FC = () => {
   return (
     <div className={styles.loginPage}>
       {/*背景图片*/}
-      <canvas id={'canvas'} style={{display: 'block'}}></canvas>
+      {/*<canvas id={'canvas'} style={{display: 'block'}}></canvas>*/}
       {/*登录盒子*/}
-      <div className={styles.loginBox + ' loginbox'}>
+      <div className={styles.loginBox}>
         {contextHolder}
         {/* 标题部分 */}
         <div className={styles.title}>
-          <h1>前端乐哥&nbsp;·&nbsp;通用后台系统</h1>
-          <p>Strive Everyday</p>
+          <h1>你好</h1>
         </div>
         {/*表单部分*/}
         <div className={'form'}>
           <Space direction="vertical" size="middle" style={{display: 'flex'}}>
-            <Input placeholder={'用户名'} onChange={usernameChange}></Input>
+            <div>
+              <Input placeholder={'用户名'} onChange={usernameChange}></Input>
+            </div>
             <form>
               <Input.Password placeholder="密码" autoComplete={'off'} onChange={passwordChange}/>
             </form>

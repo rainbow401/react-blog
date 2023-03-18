@@ -1,6 +1,12 @@
 .loginPage{
   position: relative;
+  background-image: url("@/assets/img/background.jpg");
+  background-size: cover; /* 图片铺满整个背景 */
+  width: 100vw;
+  height: 100vh;
   .loginBox{
+    background: #9E9E9E;
+    border-radius: 10px; /* 所有圆角都为 10px */
     width: 450px;
     position: absolute;
     left: 50%;
@@ -26,13 +32,13 @@
         width: 100px;
         height: 2px;
         position: absolute;
-        background: linear-gradient(to right,rgba(255,255,255,0),#1976D2);
+        //background: linear-gradient(to right,rgba(255,255,255,0),#1976D2);
         left: -20px;
         top:18px;
       }
       &:after{
         left: auto;
-        background: linear-gradient(to left,rgba(255,255,255,0),#1976D2);
+        //background: linear-gradient(to left,rgba(255,255,255,0),#1976D2);
         right: -20px;
       }
     }
