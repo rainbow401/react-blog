@@ -3,6 +3,7 @@ import {Menu, MenuProps} from "antd";
 import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from "@ant-design/icons";
 import {useNavigate, useLocation} from "react-router-dom";
 import {SubMenuType} from "antd/es/menu/hooks/useItems";
+import styles from './main-menu.module.scss'
 
 type MenuItem = {
   label: string,
@@ -108,9 +109,9 @@ const MainMenu: React.FC = () => {
   };
 
   return (
-    <Menu theme="dark"
+    <Menu className={styles.menu}
           defaultSelectedKeys={[currentRoute.pathname]}
-          mode="inline" items={items}
+          mode="horizontal" items={items}
           onClick={menuClick}
           openKeys={openKeys} onOpenChange={onOpenChange}>
     </Menu>

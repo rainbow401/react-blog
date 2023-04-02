@@ -1,4 +1,4 @@
-import Home from "@/views/Home";
+import Home from "@/views/home";
 // import About from "@/views/About";
 import {Navigate} from "react-router-dom"
 import React, {lazy} from "react"

@@ -1,8 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import styles from "./login.module.scss"
-import "./login.less"
-import {Button, Input, Space, message} from "antd";
+import {Button, Input, Space, message, Form, Checkbox} from "antd";
 
 import {CaptchaAPI, LoginAPI} from '@/request/api'
 import {HTML_BASE64_PNG} from '@/constant/Common'
@@ -65,36 +64,59 @@ const Login: React.FC = () => {
     }
   }
 
+  const onFinish = (values: any) => {
+    message.success('登陆成功');
+    localStorage.setItem('react-admin-token', 'test');
+    navigateTo('/page1');
+    localStorage.removeItem('uuid');
+  };
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log('Failed:', errorInfo);
+  };
+
   return (
     <div className={styles.loginPage}>
-      {/*背景图片*/}
-      {/*<canvas id={'canvas'} style={{display: 'block'}}></canvas>*/}
-      {/*登录盒子*/}
       <div className={styles.loginBox}>
-        {contextHolder}
-        {/* 标题部分 */}
-        <div className={styles.title}>
-          <h1>你好</h1>
-        </div>
-        {/*表单部分*/}
-        <div className={'form'}>
-          <Space direction="vertical" size="middle" style={{display: 'flex'}}>
-            <div>
-              <Input placeholder={'用户名'} onChange={usernameChange}></Input>
+        <div className={styles.form}>
+          <div className={styles.img}>
+              你好
+          </div>
+          <div className={styles.items}>
+            <div className={styles.item}>
+              <Form
+                name="basic"
+                labelCol={{span: 10}}
+                wrapperCol={{span: 8}}
+                style={{maxWidth: 600}}
+                initialValues={{remember: true}}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
+              >
+                <Form.Item
+                  label="用户名"
+                  name="username"
+                  rules={[{required: true, message: '请输入用户名'}]}
+                >
+                  <Input/>
+                </Form.Item>
+
+                <Form.Item
+                  label="密码"
+                  name="password"
+                  rules={[{required: true, message: '请输入密码'}]}
+                >
+                  <Input.Password/>
+                </Form.Item>
+                <Form.Item wrapperCol={{offset: 10, span: 16}}>
+                  <Button type="primary" htmlType="submit">
+                    登陆
+                  </Button>
+                </Form.Item>
+              </Form>
             </div>
-            <form>
-              <Input.Password placeholder="密码" autoComplete={'off'} onChange={passwordChange}/>
-            </form>
-            <div className={'captchaBox'}>
-              <Input placeholder={'验证码'} onChange={captchaChange}></Input>
-              <div className={'captchaImg'} onClick={getCaptchaImg}>
-                <img src={captchaImg} style={{height: '100%', width: 80}} alt={''}></img>
-              </div>
-            </div>
-            <Button type="primary" className={'loginBtn'} block onClick={login}>
-              登陆
-            </Button>
-          </Space>
+          </div>
         </div>
       </div>
     </div>

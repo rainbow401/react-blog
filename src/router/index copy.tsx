@@ -1,5 +1,5 @@
 import App from "../App"
-import Home from "../views/Home"
+import Home from "../views/home"
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
 import About from "@/views/About";
 

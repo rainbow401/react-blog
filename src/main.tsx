@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client'
 import "reset-css"
 
 //UI框架
+import {ConfigProvider} from 'antd';
+
 // 全局样式
 import "@/assets/style/global.scss"
 // 组件样式
@@ -14,12 +16,22 @@ import {BrowserRouter} from "react-router-dom"
 import {Provider} from 'react-redux'
 import store from '@/store'
 
+const data = {
+  "token": {
+    "colorPrimary": "#52C41A"
+  }
+}
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>
   <Provider store={store}>
     <React.Suspense>
       <BrowserRouter>
-        <App />
+        <ConfigProvider
+          theme={{token: {colorPrimary: data.token.colorPrimary}}}
+        >
+          <App/>
+        </ConfigProvider>
       </BrowserRouter>
     </React.Suspense>
   </Provider>
