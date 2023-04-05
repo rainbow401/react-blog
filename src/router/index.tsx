@@ -1,14 +1,15 @@
-import Home from "@/views/home";
 // import About from "@/views/About";
 import {Navigate} from "react-router-dom"
 import React, {lazy} from "react"
 import Page301 from "@/views/Page301";
 // import User from "@/views/User";
 import Login from "@/views/login"
+import Main from "@/views/main";
+import Home from "@/views/home/";
 
 const About = lazy(() => import("../views/About"))
 const User = lazy(() => import("../views/User"))
-const Page1 = lazy(() => import("../views/Page1"))
+const Page1 = lazy(() => import("../views/page1"))
 const Page2 = lazy(() => import("../views/Page2"))
 
 
@@ -19,8 +20,12 @@ const routes = [
   },
   {
     path: "/",
-    element: <Home/>,
+    element: <Main/>,
     children: [
+      {
+        path: "/home",
+        element: <Home/>
+      },
       {
         path: "/page1",
         element: <Page1/>
@@ -41,19 +46,8 @@ const routes = [
   },
   {
     path: "*",
-    element: <Navigate to={"/page1"}></Navigate>
+    element: <Navigate to={"/home"}></Navigate>
   },
-
-  // {
-  //   path: "/about",
-  //   element: <About/>
-  // }, {
-  //   path: "/home",
-  //   element: <Home/>
-  // }, {
-  //   path: "/user",
-  //   element: <User/>
-  // },
 ]
 
 export default routes

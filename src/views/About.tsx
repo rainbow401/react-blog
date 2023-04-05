@@ -1,6 +1,6 @@
 function About() {
   return(
-    <div className={"home"}>
+    <div className={"main"}>
       <p>这是about组件</p>
     </div>
   )

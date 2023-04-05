@@ -1,0 +1,47 @@
+//.log {
+//  width: 40px;
+//  height: 40px;
+//  //background-image: url('@/assets/img/img_4.png');
+//  background-size: contain;
+//  background-repeat: no-repeat;
+//  background-position: center center;
+//  position: absolute; /* 设置子元素为绝对定位 */
+//  top: 50%; /* 将子元素向下移动一半的高度 */
+//  left: 1%;
+//  transform: translateY(-50%); /* 将子元素向上移动一半的高度 */
+//  border-radius: 50%;
+//}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  justify-content: space-around;
+}
+
+.others {
+  display: flex;
+  flex-direction: row;
+
+  .logOut {
+    margin-left: 5px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+
+  .div {
+    min-height: calc(100vh - 94px);
+    min-width: calc(100vw - 15px);
+    max-width: calc(100vw - 15px);
+  }
+}
+
+.layout {
+  background: #f5f5f5;
+}

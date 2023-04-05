@@ -4,9 +4,10 @@ import {Button, message} from "antd";
 // import NumStatus from "@/store/ArrayStatus/reducer";
 import numStatus from "@/store/NumStatus";
 
+import styles from './page1.module.scss';
 
 
-const Page1: React.FC = () => {
+const Index: React.FC = () => {
 
   const dispatch = useDispatch();
 
@@ -31,14 +32,18 @@ const Page1: React.FC = () => {
   console.log(sarr);
 
   return (
-    <div className={"home"}>
-      <p>这是Page1组件</p>
-      <p>{num}</p>
-      <Button onClick={changeNum}>同步按钮</Button>
-      <Button onClick={changeNum2}>异步按钮</Button>
-      <p>{sarr}</p>
+    <div className={styles.main}>
+      111
+      <div>
+        <p>这是Page1组件</p>
+        <p>{num}</p>
+        <Button onClick={changeNum}>同步按钮</Button>
+        <Button onClick={changeNum2}>异步按钮</Button>
+        <p>{sarr}</p>
+      </div>
+
     </div>
   )
 }
 
-export default Page1
+export default Index

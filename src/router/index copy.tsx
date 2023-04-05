@@ -1,5 +1,5 @@
 import App from "../App"
-import Home from "../views/home"
+import Home from "../views/main"
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
 import About from "@/views/About";
 
@@ -10,7 +10,7 @@ function baseRouter()  {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App/>}>
-          <Route path={"/"} element={<Navigate to={"/home"}/>} ></Route>
+          <Route path={"/"} element={<Navigate to={"/main"}/>} ></Route>
           <Route path="/home" element={<Home/>}></Route>
           <Route path="/about" element={<About/>}></Route>
         </Route>

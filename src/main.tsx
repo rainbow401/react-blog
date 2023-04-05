@@ -17,8 +17,8 @@ import {Provider} from 'react-redux'
 import store from '@/store'
 
 const data = {
-  "token": {
-    "colorPrimary": "#52C41A"
+  token: {
+    colorPrimary: "#52C41A"
   }
 }
 
@@ -28,7 +28,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.Suspense>
       <BrowserRouter>
         <ConfigProvider
-          theme={{token: {colorPrimary: data.token.colorPrimary}}}
+          theme={{token: {colorPrimary: data.token.colorPrimary, borderRadius: 8}}}
         >
           <App/>
         </ConfigProvider>

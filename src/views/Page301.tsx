@@ -1,6 +1,6 @@
 function Page301() {
   return(
-    <div className={"home"}>
+    <div className={"main"}>
       <p>这是Page301组件</p>
     </div>
   )

@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
-import {useRoutes, useLocation, useNavigate} from "react-router-dom";
-import {message} from 'antd'
+import {useLocation, useNavigate, useRoutes} from "react-router-dom";
+import {message, theme} from 'antd'
 import router from "./router"
 
 function BeforeRouterEnter() {
@@ -38,23 +38,23 @@ function ToIndex() {
 
   useEffect(() => {
     // 加载完组件之后执行这里的代码
-    navigateTo('/page1')
-    message.warning('您已经登录过了！')
+    navigateTo('/home')
+    // message.warning('您已经登录过了！')
   },[])
   return <></>
 }
 
 function App() {
+
+  const {
+    token: {...token},
+  } = theme.useToken();
+
+  console.log(token, '===')
   const [count, setCount] = useState(0)
 
-  // const outlet = useRoutes(router);
   return (
     <div className="App" style={{height: '100vh'}}>
-      {/*<Link to={"/home"}>home</Link>|*/}
-      {/*<Link to={"/about"}>about</Link>*/}
-      {/*<Link to={"/user"}>user</Link>*/}
-      {/*占位符，类似于窗口来展示组件的*/}
-      {/*{outlet}*/}
       <BeforeRouterEnter></BeforeRouterEnter>
     </div>
   )

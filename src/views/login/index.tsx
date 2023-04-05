@@ -1,7 +1,7 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom'
 import styles from "./login.module.scss"
-import {Button, Input, Space, message, Form, Checkbox} from "antd";
+import {Button, Form, Input, message} from "antd";
 
 import {CaptchaAPI, LoginAPI} from '@/request/api'
 import {HTML_BASE64_PNG} from '@/constant/Common'
@@ -67,7 +67,7 @@ const Login: React.FC = () => {
   const onFinish = (values: any) => {
     message.success('登陆成功');
     localStorage.setItem('react-admin-token', 'test');
-    navigateTo('/page1');
+    navigateTo('/home');
     localStorage.removeItem('uuid');
   };
 
@@ -80,7 +80,7 @@ const Login: React.FC = () => {
       <div className={styles.loginBox}>
         <div className={styles.form}>
           <div className={styles.img}>
-              你好
+            你好
           </div>
           <div className={styles.items}>
             <div className={styles.item}>
