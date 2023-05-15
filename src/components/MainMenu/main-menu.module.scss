@@ -1,3 +1,11 @@
 .menu {
   width: 80%;
 }
+
+.log {
+    width: 70px; /* 设置图像的宽度 */
+    height: 35px; /* 设置图像的高度 */
+    transform: scale(0.8); /* 根据需求设置缩放比例 */
+  transform: translateY(10px); /* 设置下移的距离 */
+
+}

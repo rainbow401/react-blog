@@ -4,11 +4,14 @@ import {BookOutlined, CommentOutlined, HomeOutlined, PieChartOutlined, ToolOutli
 import {useLocation, useNavigate} from "react-router-dom";
 import styles from './main-menu.module.scss'
 
+import log from '@/assets/img/logo/logo (1)11.png'
+
 type MenuItem = {
   label: string,
   key: string,
   icon: any,
-  children?: SubMenuItem[]
+  children?: SubMenuItem[],
+  disabled?: boolean
 }
 
 type SubMenuItem = {
@@ -17,6 +20,12 @@ type SubMenuItem = {
 }
 
 const items: MenuItem[] = [
+  {
+    label: '',
+    key: '/home1',
+    icon: <img src={log} className={styles.log}/>,
+    disabled: true
+  },
   {
     label: '首页',
     key: '/home',
