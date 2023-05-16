@@ -6,6 +6,7 @@ import Page301 from "@/views/Page301";
 import Login from "@/views/login"
 import Main from "@/views/main";
 import Home from "@/views/home/";
+import ArticleList from "@/views/ArticleList";
 
 const About = lazy(() => import("../views/About"))
 const User = lazy(() => import("../views/User"))
@@ -37,6 +38,10 @@ const routes = [
       {
         path: "/page3/page301",
         element: <Page301/>
+      },
+      {
+        path: "/articles",
+        element: <ArticleList/>
       },
     ]
   },

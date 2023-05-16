@@ -20,12 +20,12 @@ type SubMenuItem = {
 }
 
 const items: MenuItem[] = [
-  {
-    label: '',
-    key: '/home1',
-    icon: <img src={log} className={styles.log}/>,
-    disabled: true
-  },
+  // {
+  //   label: '',
+  //   key: '/home1',
+  //   icon: <img src={log} className={styles.log}/>,
+  //   disabled: true
+  // },
   {
     label: '首页',
     key: '/home',
@@ -33,7 +33,7 @@ const items: MenuItem[] = [
   },
   {
     label: '文章',
-    key: '/page1',
+    key: '/articles',
     icon: <BookOutlined/>
   },
   {

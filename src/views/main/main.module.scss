@@ -1,15 +1,8 @@
 .log {
-  width: 40px;
-  height: 40px;
-  background-image: url('@/assets/img/log/log.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: absolute; /* 设置子元素为绝对定位 */
-  top: 50%; /* 将子元素向下移动一半的高度 */
-  left: 1%;
-  transform: translateY(-50%); /* 将子元素向上移动一半的高度 */
-  border-radius: 50%;
+    width: 70px; /* 设置图像的宽度 */
+    height: 40px; /* 设置图像的高度 */
+    transform: scale(0.8); /* 根据需求设置缩放比例 */
+  transform: translateY(15px); /* 设置下移的距离 */
 }
 
 .header {

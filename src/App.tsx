@@ -3,6 +3,8 @@ import {useLocation, useNavigate, useRoutes} from "react-router-dom";
 import {message, theme} from 'antd'
 import router from "./router"
 
+import styles from '@/index.sss'
+
 function BeforeRouterEnter() {
   const location = useLocation();
   const outlet = useRoutes(router);
