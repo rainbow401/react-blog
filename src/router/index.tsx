@@ -6,7 +6,7 @@ import Page301 from "@/views/Page301";
 import Login from "@/views/login"
 import Main from "@/views/main";
 import Home from "@/views/home/";
-import ArticleList from "@/views/ArticleList";
+import ArticleList from "@/views/home/ArticleList";
 
 const About = lazy(() => import("../views/About"))
 const User = lazy(() => import("../views/User"))

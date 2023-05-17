@@ -1,0 +1,13 @@
+.article {
+    margin-top: 10px;
+    ul {
+        // display: inline !important;
+        li {
+            width: 50px !important;
+        }
+
+        li:not(:last-child) {
+            border-inline-end: 0px solid #f0f0f0 !important;
+        }
+    }
+}
