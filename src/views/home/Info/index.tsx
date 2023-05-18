@@ -10,7 +10,7 @@ function Index() {
 
   return (
     <div className={styles.info} style={{background: colorBgContainer, borderRadius: borderRadius}}>
-      其他信息
+      
     </div>
   );
 }

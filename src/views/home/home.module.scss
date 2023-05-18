@@ -9,14 +9,15 @@
   justify-content: center;
 
   .left {
-    width: 70%;
+    width: 60%;
   }
 
   .info {
-    width: calc(30% - 30px);
+    width: calc(20% - 30px);
+    margin-left: 15px;
   }
 
   .card {
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
   }
 }

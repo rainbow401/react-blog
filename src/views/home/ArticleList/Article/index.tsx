@@ -22,7 +22,7 @@ function Article(props: Article) {
           <CommonAction count={props.comment}></CommonAction>,
         ]}
       >
-        {props.content}
+        <div className={styles.content}>{props.content}</div>
       </Card>
     </div>
   );

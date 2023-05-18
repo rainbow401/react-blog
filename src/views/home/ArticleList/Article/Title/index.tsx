@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import styles from './title.module.scss'
+import styles from "./title.module.scss";
 
 const formatTime = (date: Date) => {
   const year = date.getFullYear();
@@ -20,19 +20,15 @@ function Title(props: {
   username: string;
   tags: string[];
 }) {
-
-
   return (
-    <div>
-      <div>
-        <ul className={styles.items}>
-          <li>{props.username}</li>
-          <li>{formatTime(props.time)}</li>
-          <li className={styles.tags}>
-            <div>{props.tags[0]}</div>
-            <div>{props.tags[1]}</div>
-          </li>
-        </ul>
+    <div className={styles.main}>
+      <div className={styles.items}>
+        <div className={styles.username}>{props.username}</div>
+        <div className={styles.date}>{formatTime(props.time)}</div>
+        <div className={styles.tags}>
+          <div>{props.tags[0]}</div>
+          <div>{props.tags[1]}</div>
+        </div>
       </div>
       <div className={styles.title}>{props.title}</div>
     </div>
