@@ -8,6 +8,7 @@ import Article from "./Article";
 
 const data: Array<Article> = [
   {
+    id: 1,
     title: "文章1手机打开老师叫啊打开链接阿斯利康的",
     author: "2",
     time: new Date(),
@@ -19,6 +20,7 @@ const data: Array<Article> = [
     tags: ['后端','Java','Spring']
   },
   {
+    id: 2,
     title: "文章1手机打开老师叫啊打开链接阿斯利康的",
     author: "2",
     time: new Date(),
@@ -29,6 +31,7 @@ const data: Array<Article> = [
     username: 'yzh',
     tags: ['后端','Java','Spring']
   },{
+    id: 3,
     title: "文章1手机打开老师叫啊打开链接阿斯利康的",
     author: "2",
     time: new Date(),
@@ -46,7 +49,7 @@ function ArticleList() {
   return (
     <div>
       {data.map((e: Article) => (
-        <Article {...e}></Article>
+        <Article key={e.id} {...e}></Article>
       ))}
     </div>
   );

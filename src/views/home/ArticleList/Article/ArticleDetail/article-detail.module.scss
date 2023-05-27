@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  width: 90%;
+  height: 200%;
+  // background-color: white;
+
+  .action {
+    display: flex;
+    margin: auto;
+    height: 100%;
+    width: 5%;
+    // background-color: white;
+  }
+
+  .content {
+    margin: auto;
+    display: flex;
+    height: 100%;
+    width: 75%;
+    background-color: white;
+  }
+  .info {
+    margin: auto;
+
+    display: flex;
+    height: 100%;
+    width: 15%;
+    background-color: white;
+  }
+}

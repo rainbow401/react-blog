@@ -7,11 +7,13 @@ import Login from "@/views/login"
 import Main from "@/views/main";
 import Home from "@/views/home/";
 import ArticleList from "@/views/home/ArticleList";
+import ArticleDetail from "@/views/home/ArticleList/Article/ArticleDetail";
 
 const About = lazy(() => import("../views/About"))
 const User = lazy(() => import("../views/User"))
 const Page1 = lazy(() => import("../views/page1"))
 const Page2 = lazy(() => import("../views/Page2"))
+
 
 
 const routes = [
@@ -41,8 +43,9 @@ const routes = [
       },
       {
         path: "/articles",
-        element: <ArticleList/>
+        element: <ArticleList/>,
       },
+      {path: "/articles/detail/:id", element: <ArticleDetail/>}
     ]
   },
   {

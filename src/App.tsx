@@ -21,6 +21,8 @@ function BeforeRouterEnter() {
     return <ToLogin/>
   }
 
+  console.log("outlet")
+
   return outlet;
 }
 
@@ -56,7 +58,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App" style={{height: '100vh'}}>
+    <div className="App" style={{minHeight: '100vh'}}>
       <BeforeRouterEnter></BeforeRouterEnter>
     </div>
   )
