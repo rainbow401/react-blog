@@ -1,5 +1,6 @@
 import {
   HeartOutlined,
+  HeartTwoTone,
   LikeOutlined,
   LikeTwoTone,
   MessageOutlined,
@@ -10,10 +11,10 @@ import { theme } from "antd";
 import { useState } from "react";
 
 function Action() {
+  const [likeState, setLike] = useState(false);
+  const [heartState, setHeart] = useState(false);
 
-  const [like, setLike] = useState(false);
-
-  const [content, setContent] = useState(200);
+  const [content, setContent] = useState(777);
 
   const {
     token: { ...token },
@@ -22,23 +23,41 @@ function Action() {
   const likeCount = 1;
   return (
     <div className={styles.main}>
-      <div className={[styles.like, styles.item].join(" ")} onClick={() => setLike(!like)}
-      data-content={content}>
-        {!like && <LikeOutlined style={{ fontSize: 20 }} />}
-        {like && (
+      <div
+        className={`${styles.like} ${styles.item}`}
+        onClick={() => setLike(!likeState)}
+        data-content={content}
+        data-color={token.colorPrimary}
+      >
+        {likeState ? (
+          <LikeOutlined style={{ fontSize: 20 }} />
+        ) : (
           <LikeTwoTone
             style={{ fontSize: 20 }}
             twoToneColor={token.colorPrimary}
           />
         )}
       </div>
-      <br />
-      <div className={[styles.comment, styles.item].join(" ")}>
+      <div
+        className={`${styles.message} ${styles.item}`}
+        data-content={content}
+      >
         <MessageOutlined style={{ fontSize: 20 }} />
       </div>
 
-      <div className={[styles.heart, styles.item].join(" ")}>
-        <HeartOutlined style={{ fontSize: 20 }} />
+      <div
+        className={`${styles.heart} ${styles.item}`}
+        data-content={content}
+        onClick={() => setHeart(!heartState)}
+      >
+        {heartState ? (
+          <HeartOutlined style={{ fontSize: 20 }} />
+        ) : (
+          <HeartTwoTone
+            style={{ fontSize: 20 }}
+            twoToneColor={token.colorPrimary}
+          />
+        )}
       </div>
     </div>
   );

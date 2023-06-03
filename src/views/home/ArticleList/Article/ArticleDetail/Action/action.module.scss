@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   position: fixed;
-  left: 5%;
+  right: 93%;
   top: 50%;
   transform: translateY(-50%);
   margin: auto;
@@ -15,32 +15,38 @@
       transform: translateX(80%) translateY(-5%);
     }
   }
-  .item::after {
+  .item {
+    position: relative;
+    cursor: pointer;
   }
 }
 
-.like::after {
+.like::after,
+.message::after,
+.heart::after {
   content: attr(data-content);
-    position: absolute;
-    top: -12px;
-    right: -10px;
-    background-color: blue;
-    color: white;
-    padding: 4px;
-    font-size: 12px;
-    border-radius: 80%;
-    width: 30px;
-    height: 10px;
-    border-radius: 20px;
-    margin-left: 5px;
+  position: absolute;
+  top: 0;
+  right: -30%;
+  background-color: var(--color-antd-primary);
+  color: white;
+  font-size: 11px;
+  min-width: 17px;
+  height: 17px;
+  line-height: 17px;
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
+  padding: 0 5px;
+  cursor: pointer;
 }
 
-.comment {
-  margin-top: 10px;
+.message {
+  margin-top: 20px;
 }
 
 .heart {
-  margin-top: 25px; /* 调整第二个图标和第一个图标之间的垂直间距 */
+  margin-top: 20px;
 }
 
 .likeCount {
