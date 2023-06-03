@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./article.module.scss";
 
-import { Card } from "antd";
+import { Card, theme } from "antd";
 import ViewAction from "./ViewAction";
 import LikeAction from "./LikeAction";
 import CommonAction from "./CommonAction";

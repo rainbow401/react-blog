@@ -1,28 +1,45 @@
-import { CommentOutlined, LikeFilled, LikeOutlined } from "@ant-design/icons";
-import { Affix, Button } from "antd";
-import React, { useState } from "react";
+import {
+  HeartOutlined,
+  LikeOutlined,
+  LikeTwoTone,
+  MessageOutlined,
+} from "@ant-design/icons";
 
 import styles from "./action.module.scss";
+import { theme } from "antd";
+import { useState } from "react";
 
 function Action() {
-  const [likeTop, setLikeTop] = useState(10);
-  const [commentTop, setCommentTop] = useState(10);
+
+  const [like, setLike] = useState(false);
+
+  const [content, setContent] = useState(200);
+
+  const {
+    token: { ...token },
+  } = theme.useToken();
+
+  const likeCount = 1;
   return (
-    <div>
-      <Affix offsetTop={likeTop}>
-        <div className={styles.like} onClick={() => setLikeTop(likeTop + 10)}>
-          <LikeFilled style={{ fontSize: 20 }} />
-        </div>
-      </Affix>
+    <div className={styles.main}>
+      <div className={[styles.like, styles.item].join(" ")} onClick={() => setLike(!like)}
+      data-content={content}>
+        {!like && <LikeOutlined style={{ fontSize: 20 }} />}
+        {like && (
+          <LikeTwoTone
+            style={{ fontSize: 20 }}
+            twoToneColor={token.colorPrimary}
+          />
+        )}
+      </div>
       <br />
-      <Affix offsetTop={commentTop + 28}>
-        <div
-          className={styles.comment}
-          onClick={() => setCommentTop(commentTop + 10)}
-        >
-          <CommentOutlined style={{ fontSize: 20 }}/>
-        </div>
-      </Affix>
+      <div className={[styles.comment, styles.item].join(" ")}>
+        <MessageOutlined style={{ fontSize: 20 }} />
+      </div>
+
+      <div className={[styles.heart, styles.item].join(" ")}>
+        <HeartOutlined style={{ fontSize: 20 }} />
+      </div>
     </div>
   );
 }
