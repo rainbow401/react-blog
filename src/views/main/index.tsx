@@ -6,15 +6,13 @@ import MainMenu from "@/components/MainMenu";
 import MyAvatar from "@/views/main/header/avatar";
 import styles from "./main.module.scss";
 
-import style from './golable.scss'
-
 import log from "@/assets/img/logo/logo (1)11.png";
 
 const { Header, Content } = Layout;
 
 const App: React.FC = () => {
   return (
-    <div className={styles.global}>
+    <div className={styles.main}>
       <Layout className={styles.layout}>
         <Header className={styles.header} style={{ background: "white" }}>
           <div className={styles.logo}>

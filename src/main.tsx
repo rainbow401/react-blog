@@ -15,6 +15,7 @@ import {BrowserRouter} from "react-router-dom"
 // 状态管理
 import {Provider} from 'react-redux'
 import store from '@/store'
+import { log } from 'console';
 
 const data = {
   token: {
@@ -22,13 +23,15 @@ const data = {
   }
 }
 
+console.log('main',data)
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>
   <Provider store={store}>
     <React.Suspense>
       <BrowserRouter>
         <ConfigProvider
-          theme={{token: {colorPrimary: data.token.colorPrimary, borderRadius: 8}}}
+          theme={{token: { borderRadius: 8}}}
         >
           <App/>
         </ConfigProvider>

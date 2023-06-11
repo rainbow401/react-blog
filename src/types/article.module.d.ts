@@ -10,4 +10,5 @@ interface Article {
   title: string;
   username: string;
   tags: string[];
+  heart?: number;
 }
