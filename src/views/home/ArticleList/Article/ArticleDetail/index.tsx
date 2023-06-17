@@ -39,9 +39,9 @@ function ArticleDetail() {
       <div className={styles.content} style={{ borderRadius: borderRadius }}>
         <Content />
       </div>
-      <div className={styles.info} style={{ borderRadius: borderRadius }}>
+      {/* <div className={styles.info} style={{ borderRadius: borderRadius }}>
         <Info />
-      </div>
+      </div> */}
     </div>
   );
 }

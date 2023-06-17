@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, memo } from "react";
 import { Outlet } from "react-router-dom";
 
 import { Layout } from "antd";
@@ -35,4 +35,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default memo(App);

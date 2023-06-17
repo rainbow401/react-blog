@@ -3,7 +3,52 @@
   max-width: 95%;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 10px auto;
   user-select: text;
+}
+
+.content {
+  padding: 10px;
+  background-color: white;
+  border-radius: 8px;
+  width: 80%;
+}
+
+.navigation {
+  margin-left: 10px;
+  position: fixed;
+  right: 0;
+  width: 20%;
+  // background-color: white;
+  border-radius: 8px;
+  height: 85vh;
+  width: 23vw;
+  overflow-y: auto; /* 垂直方向溢出显示滚动条 */
+  overflow-x: auto;
+}
+
+.pre {
+  border-radius: 8px;
+  max-width: 90%;
+  margin: auto;
+  overflow: auto;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  code {
+    margin: auto;
+  }
+}
+
+p > code {
+  color: #c7254e;
+    background-color: #f9f2f4;
+}
+
+blockquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  font-size: 17.5px;
+  border-left: 5px solid #eee;
 }

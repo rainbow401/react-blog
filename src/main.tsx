@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 // 样式初始化
-import "reset-css"
+// import "reset-css"
 
 //UI框架
 import {ConfigProvider} from 'antd';
