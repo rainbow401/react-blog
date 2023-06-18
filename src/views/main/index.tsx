@@ -10,7 +10,9 @@ import log from "@/assets/img/logo/logo (1)11.png";
 
 const { Header, Content } = Layout;
 
-const App: React.FC = () => {
+const main: React.FC = () => {
+  console.log("main-2")
+
   return (
     <div className={styles.main}>
       <Layout className={styles.layout}>
@@ -35,4 +37,4 @@ const App: React.FC = () => {
   );
 };
 
-export default memo(App);
+export default memo(main);

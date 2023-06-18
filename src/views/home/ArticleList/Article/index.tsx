@@ -19,6 +19,8 @@ function Article(props: Article) {
     navigateTo(`/articles/detail/${props.id}`);
   }
 
+  console.log(Article)
+
   return (
     <div className={styles.article}>
       <Card

@@ -45,7 +45,7 @@ const data: Array<Article> = [
 ];
 
 function ArticleList() {
-
+  console.log("ArticleList")
   return (
     <div>
       {data.map((e: Article) => (

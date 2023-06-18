@@ -11,6 +11,7 @@ function Index() {
   const {
     token: { colorBgContainer, borderRadius },
   } = theme.useToken();
+  console.log("home")
 
   return (
     <div className={styles.main}>

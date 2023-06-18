@@ -23,7 +23,7 @@ const data = {
   }
 }
 
-console.log('main',data)
+console.log("main")
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>

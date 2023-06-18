@@ -7,6 +7,7 @@ function Index() {
   const {
     token: {colorBgContainer, borderRadius},
   } = theme.useToken();
+  console.log("INFO")
 
   return (
     <div className={styles.info} style={{background: colorBgContainer, borderRadius: borderRadius}}>
