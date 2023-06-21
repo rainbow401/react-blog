@@ -4,6 +4,7 @@ import { message, theme } from "antd";
 import router from "./router";
 
 import './global.css'
+import { useToken } from "antd/es/theme/internal";
 
 const BeforeRouterEnter = React.memo(() => {
   const location = useLocation();
@@ -54,6 +55,10 @@ function ToIndex() {
 
 function App() {
   console.log("APP");
+
+  const token  = useToken();
+  console.log(token);
+
   return (
     <div className="App" style={{ minHeight: "100vh"}}>
       <BeforeRouterEnter></BeforeRouterEnter>

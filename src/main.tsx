@@ -16,11 +16,10 @@ import {BrowserRouter} from "react-router-dom"
 import {Provider} from 'react-redux'
 import store from '@/store'
 import { log } from 'console';
+import './global.css'
+
 
 const data = {
-  token: {
-    colorPrimary: "#52C41A"
-  }
 }
 
 console.log("main")

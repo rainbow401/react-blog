@@ -2,7 +2,7 @@ import { memo, useEffect, useRef } from "react";
 
 import hljs from "highlight.js";
 import MarkdownIt from "markdown-it";
-import "./github-dark-dimmed.css";
+import "./github.css";
 
 import mdKatex from "@traptitech/markdown-it-katex";
 import markdownItAnchor from "markdown-it-anchor";
@@ -12,6 +12,8 @@ import markdownItTocDoneRight from "markdown-it-toc-done-right";
 
 import styles from "./content.module.scss";
 import { data } from "./data2";
+
+import './github-markdown.css'
 
 const md = new MarkdownIt({
   html: false,
@@ -24,8 +26,12 @@ const md = new MarkdownIt({
       try {
         content = hljs.highlight(str, {
           language: lang,
-          ignoreIllegals: true,
+          ignoreIllegals: false,
         }).value;
+        console.log('===', hljs.highlight(str, {
+          language: lang,
+          ignoreIllegals: false,
+        }))
       } catch (e) {
         console.log(e);
         return str;
@@ -33,6 +39,8 @@ const md = new MarkdownIt({
     } else {
       content = md.utils.escapeHtml(str);
     }
+
+    console.log(content, str, lang);
     return `<pre class="hljs ${styles.pre}"><code>${content}</code></pre>`;
   },
 });
@@ -64,9 +72,12 @@ md.use(markdownItTocDoneRight, {
     return `${navigationIndex++}`;
   },
   format: (str: string) => {
-    return `<div id=navigation-index-${navigationIndex - 1}>${str}</div>`;
+    return `<div id=navigation-index-${navigationIndex - 1} class="${
+      styles.item
+    }">${str}</div>`;
   },
 });
+
 // 文章内容标题标签设置id
 let anchorIndex = 0;
 md.use(markdownItAnchor, {
@@ -137,18 +148,17 @@ function Content() {
 
   return (
     <div className={styles.main}>
-      <div
+      <article
         ref={contentRef}
-        className={styles.content}
+        className={styles.content + ' markdown-body'}
         dangerouslySetInnerHTML={{ __html: content }}
+      ></article>
+      <div
+        ref={navigationRef}
+        className={styles.navigation}
+        onClick={handleClick}
+        dangerouslySetInnerHTML={{ __html: navigation }}
       ></div>
-      <div ref={navigationRef} className={styles.navigation}>
-        <div
-          className={styles.item}
-          onClick={handleClick}
-          dangerouslySetInnerHTML={{ __html: navigation }}
-        ></div>
-      </div>
     </div>
   );
 }

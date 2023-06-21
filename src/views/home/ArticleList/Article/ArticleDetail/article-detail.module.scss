@@ -3,7 +3,7 @@
   margin: auto;
   flex-direction: row;
   width: 90%;
-  height: 200%;
+  height: 100%;
   // background-color: white;
 
   border-radius: var(--common-border-radius);
@@ -27,7 +27,6 @@
   }
   .info {
     margin: auto;
-
     display: flex;
     height: 100%;
     width: 15%;

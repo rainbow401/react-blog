@@ -18,7 +18,7 @@ export const data = "# 26. WebMvc：DispatcherServlet的工作原理\n" +
 "\n" +
 "```java\n" +
 "@Controller\n" +
-"public class DemoController {\n" +
+"public class DemoController {  \n" +
 "    @GetMapping(\"/test\")\n" +
 "    public String test() {\n" +
 "        return \"test\";\n" +

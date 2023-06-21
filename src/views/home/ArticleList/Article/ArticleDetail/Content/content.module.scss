@@ -6,54 +6,66 @@
   flex-direction: row;
   margin: 10px auto;
   user-select: text;
+  font-size: 16px;
+
 }
 
+// markdown 内容
 .content {
   padding: 10px;
   background-color: white;
   border-radius: var(--common-border-radius);
   width: 80%;
   overflow: auto;
-  
 }
 
+// 导航
 .navigation {
-  margin-left: 10px;
   position: fixed;
-  right: 5%;
+  right: 3%;
   border-radius: var(--common-border-radius);
-  height: 85vh;
+  height: 90vh;
   width: 20vw;
   .listClass {
     list-style: none;
+    color: black;
     .itemClass {
+      position: relative;
       list-style: none;
       .linkClass {
-        color: rgba(60, 60, 60, 1);
-      }
-      .linkClass:hover {
-        color: var(--color-antd-primary);
-      }
-
-      .linkClass:active {
-        color: red;
+        position: relative;
+        color: black;
+        .item {
+          line-height: 22.5px;
+        }
+        .item:hover {
+          background-color: var(--gray-2);
+        }
       }
     }
   }
-
-  .item {
-    overflow-y: auto; /* 垂直方向溢出显示滚动条 */
-    overflow-x: auto;
-    font-size: 16px;
-    font-weight: bold;
-    color: rgba(60, 60, 60, 0.7);
-  }
+  overflow: auto;
 }
 
+// 导航激活颜色
 .active {
-  background-color: #e4e6eb;
+  color: var(--blue-1);
 }
 
+.active::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 0px;
+    left: -10px;
+    // margin-top: 7px;
+    width: 4px;
+    height: 15px;
+    background: var(--blue-1);
+    border-radius: 0 4px 4px 0;
+}
+
+// 代码块
 .pre {
   border-radius: 8px;
   max-width: 98%;
@@ -66,24 +78,21 @@
     margin: auto;
   }
   border: 1px solid #f6f8fa;
-  // background-color: #f6f8fa !important;
 }
 
-p> code {
-  color: #c7254e;
-  background-color: #f9f2f4;
-  border-radius: var(--common-border-radius);
+.hljs {
+  white-space: pre-wrap;
+  word-spacing: 10em;
+}
+
+:not(pre) > code {
+  font-weight: 600;
+  color: var(--blue-1);
+  border-radius: var(--two-border-radius);
   padding: 0px 4px;
 }
 
-li> code {
-  color: #c7254e;
-  background-color: #f9f2f4;
-  border-radius: var(--common-border-radius);
-  padding: 0px 4px;
-}
-
-
+// 引用块
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
