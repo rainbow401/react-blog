@@ -1,0 +1,54 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 93%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: auto;
+  .item > span {
+    border-radius: 50%;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    svg {
+      transform: translateX(80%) translateY(-5%);
+    }
+  }
+  .item {
+    position: relative;
+    cursor: pointer;
+  }
+}
+
+.like::after,
+.message::after,
+.heart::after {
+  content: attr(data-content);
+  position: absolute;
+  top: 0;
+  right: -30%;
+  background-color: var(--blue-1);
+  color: white;
+  font-size: 11px;
+  min-width: 17px;
+  height: 17px;
+  line-height: 17px;
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+.message {
+  margin-top: 20px;
+}
+
+.heart {
+  margin-top: 20px;
+}
+
+.likeCount {
+  transform: translateY(-200%);
+}

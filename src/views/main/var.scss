@@ -1,0 +1,19 @@
+:root {
+  --blue-1: #4096ff;
+  --blue-2: rgb(214, 234, 252);
+  --gray-1: #f2f3f5;
+  --gray-2: #dbdde1;
+  --common-border-radius: 8px;
+  --two-border-radius: 5px;
+}
+
+body {
+  margin: 0 0;
+  padding: 0 0;
+}
+
+// body { scroll-behavior: smooth; }
+
+// ol { counter-reset: list-item; }
+// li { display: block; counter-increment: list-item; }
+// li:before { content: counters(list-item,'.') ' '; }

@@ -1,0 +1,46 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
+
+import { Card, theme } from "antd";
+
+import styles from "./article.module.scss";
+
+import ViewAction from "./ViewAction";
+import LikeAction from "./LikeAction";
+import CommonAction from "./CommonAction";
+import Title from "./Title";
+
+function Article(props: Article) {
+  const navigateTo = useNavigate();
+
+  const articleDetail = () => {
+    console.log("articleDetail");
+    navigateTo(`/articles/detail/${props.id}`);
+  };
+
+  console.log(Article);
+
+  return (
+    <div className={styles.article}>
+      <Card
+        key={props.id + "card"}
+        className={styles.card}
+        title={<Title {...props}></Title>}
+        hoverable={true}
+        bordered={false}
+        actions={[
+          <ViewAction count={props.view}></ViewAction>,
+          <LikeAction count={props.like}></LikeAction>,
+          <CommonAction count={props.comment}></CommonAction>,
+        ]}
+        onClick={articleDetail}
+      >
+        <div className={styles.content}>{props.content}</div>
+      </Card>
+    </div>
+  );
+}
+
+Article.propTypes = {};
+
+export default Article;

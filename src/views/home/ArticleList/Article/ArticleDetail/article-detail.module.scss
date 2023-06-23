@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  margin: auto;
+  flex-direction: row;
+  width: 90%;
+  height: 100%;
+  border-radius: var(--common-border-radius);
+
+  .action {
+    display: flex;
+    margin: auto;
+    height: 100%;
+    width: 5%;
+    border-radius: var(--common-border-radius);
+  }
+
+  .content {
+    margin: auto;
+    display: flex;
+    height: 100%;
+    width: 90%;
+    border-radius: var(--common-border-radius);
+  }
+  .info {
+    margin: auto;
+    display: flex;
+    height: 100%;
+    width: 15%;
+    background-color: white;
+  }
+}

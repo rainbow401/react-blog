@@ -1,108 +1,125 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom'
-import styles from "./login.module.scss"
-import initLoginBg from "@/views/login/init.ts";
-import "./login.less"
-import {Button, Input, Space, message} from "antd";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import {CaptchaAPI, LoginAPI} from '@/request/api'
-import {HTML_BASE64_PNG} from '@/constant/Common'
+import { Button, Form, Input, message } from "antd";
+
+import styles from "./login.module.scss";
+
+import { CaptchaAPI, LoginAPI } from "@/request/api";
+import { HTML_BASE64_PNG } from "@/constant/Common";
 
 const Login: React.FC = () => {
-
   useEffect(() => {
-    initLoginBg();
-    window.onresize = function () {
-      initLoginBg()
-    };
     getCaptchaImg();
-  }, [])
+  }, []);
 
   const [messageApi, contextHolder] = message.useMessage();
 
   const navigateTo = useNavigate();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [captcha, setCaptcha] = useState('');
-  const [captchaImg, setCaptchaImg] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [captcha, setCaptcha] = useState("");
+  const [captchaImg, setCaptchaImg] = useState("");
 
   const usernameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
-  }
+  };
   const passwordChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
-  }
+  };
   const captchaChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCaptcha(e.target.value);
-  }
+  };
 
   const login = async () => {
-    console.log('登陆', username, password, captcha)
+    console.log("登陆", username, password, captcha);
     if (!username.trim() || !password.trim() || !captcha.trim()) {
-      messageApi.error('请完整输入信息');
+      messageApi.error("请完整输入信息");
       return;
     }
     const loginAPIRes = await LoginAPI({
       username: username,
       password: password,
       code: captcha,
-      uuid: localStorage.getItem('uuid') as string
+      uuid: localStorage.getItem("uuid") as string,
     });
 
-    console.log(loginAPIRes)
+    console.log(loginAPIRes);
     if (loginAPIRes.code === 200) {
-      message.success('登陆成功');
-      localStorage.setItem('react-admin-token', loginAPIRes.token);
-      navigateTo('/page1');
-      localStorage.removeItem('uuid');
+      message.success("登陆成功");
+      localStorage.setItem("react-admin-token", loginAPIRes.token);
+      navigateTo("/page1");
+      localStorage.removeItem("uuid");
     }
-  }
+  };
 
   const getCaptchaImg = async () => {
     const captchaAPIRes: CaptchaAPIRes = await CaptchaAPI();
     console.log(captchaAPIRes);
     if (captchaAPIRes.code === 200) {
-      setCaptchaImg(HTML_BASE64_PNG + captchaAPIRes.img)
-      localStorage.setItem('uuid', captchaAPIRes.uuid);
+      setCaptchaImg(HTML_BASE64_PNG + captchaAPIRes.img);
+      localStorage.setItem("uuid", captchaAPIRes.uuid);
     } else {
-      alert('请求验证码失败')
+      alert("请求验证码失败");
     }
-  }
+  };
+
+  const onFinish = (values: any) => {
+    message.success("登陆成功");
+    localStorage.setItem("react-admin-token", "test");
+    navigateTo("/home");
+    localStorage.removeItem("uuid");
+  };
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log("Failed:", errorInfo);
+  };
 
   return (
     <div className={styles.loginPage}>
-      {/*背景图片*/}
-      <canvas id={'canvas'} style={{display: 'block'}}></canvas>
-      {/*登录盒子*/}
-      <div className={styles.loginBox + ' loginbox'}>
-        {contextHolder}
-        {/* 标题部分 */}
-        <div className={styles.title}>
-          <h1>前端乐哥&nbsp;·&nbsp;通用后台系统</h1>
-          <p>Strive Everyday</p>
-        </div>
-        {/*表单部分*/}
-        <div className={'form'}>
-          <Space direction="vertical" size="middle" style={{display: 'flex'}}>
-            <Input placeholder={'用户名'} onChange={usernameChange}></Input>
-            <form>
-              <Input.Password placeholder="密码" autoComplete={'off'} onChange={passwordChange}/>
-            </form>
-            <div className={'captchaBox'}>
-              <Input placeholder={'验证码'} onChange={captchaChange}></Input>
-              <div className={'captchaImg'} onClick={getCaptchaImg}>
-                <img src={captchaImg} style={{height: '100%', width: 80}} alt={''}></img>
-              </div>
+      <div className={styles.loginBox}>
+        <div className={styles.form}>
+          <div className={styles.img}>你好</div>
+          <div className={styles.items}>
+            <div className={styles.item}>
+              <Form
+                name="basic"
+                labelCol={{ span: 10 }}
+                wrapperCol={{ span: 8 }}
+                style={{ maxWidth: 600 }}
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
+              >
+                <Form.Item
+                  label="用户名"
+                  name="username"
+                  rules={[{ required: true, message: "请输入用户名" }]}
+                >
+                  <Input />
+                </Form.Item>
+
+                <Form.Item
+                  label="密码"
+                  name="password"
+                  rules={[{ required: true, message: "请输入密码" }]}
+                >
+                  <Input.Password />
+                </Form.Item>
+                <Form.Item wrapperCol={{ offset: 10, span: 16 }}>
+                  <Button type="primary" htmlType="submit">
+                    登陆
+                  </Button>
+                </Form.Item>
+              </Form>
             </div>
-            <Button type="primary" className={'loginBtn'} block onClick={login}>
-              登陆
-            </Button>
-          </Space>
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

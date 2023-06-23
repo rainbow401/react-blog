@@ -1,15 +1,17 @@
-import Home from "@/views/Home";
 // import About from "@/views/About";
 import {Navigate} from "react-router-dom"
 import React, {lazy} from "react"
-import Page301 from "@/views/Page301";
-// import User from "@/views/User";
-import Login from "@/views/login"
+import Login from "@/views/Login"
+import Main from "@/views/Main";
+import Home from "@/views/Home";
+import ArticleList from "@/views/Home/ArticleList";
+import ArticleDetail from "@/views/Home/ArticleList/Article/ArticleDetail";
 
-const About = lazy(() => import("../views/About"))
-const User = lazy(() => import("../views/User"))
-const Page1 = lazy(() => import("../views/Page1"))
-const Page2 = lazy(() => import("../views/Page2"))
+// const About = lazy(() => import("../views/About"))
+// const User = lazy(() => import("../views/User"))
+// const Page1 = lazy(() => import("../views/page1"))
+// const Page2 = lazy(() => import("../views/Page2"))
+
 
 
 const routes = [
@@ -19,20 +21,17 @@ const routes = [
   },
   {
     path: "/",
-    element: <Home/>,
+    element: <Main/>,
     children: [
       {
-        path: "/page1",
-        element: <Page1/>
+        path: "/home",
+        element: <Home/>
       },
       {
-        path: "/page2",
-        element: <Page2/>
+        path: "/articles",
+        element: <ArticleList/>,
       },
-      {
-        path: "/page3/page301",
-        element: <Page301/>
-      },
+      {path: "/articles/detail/:id", element: <ArticleDetail/>}
     ]
   },
   {
@@ -41,19 +40,8 @@ const routes = [
   },
   {
     path: "*",
-    element: <Navigate to={"/page1"}></Navigate>
+    element: <Navigate to={"/home"}></Navigate>
   },
-
-  // {
-  //   path: "/about",
-  //   element: <About/>
-  // }, {
-  //   path: "/home",
-  //   element: <Home/>
-  // }, {
-  //   path: "/user",
-  //   element: <User/>
-  // },
 ]
 
 export default routes

@@ -1,0 +1,54 @@
+.main {
+}
+.items {
+  display: flex;
+  flex-direction: row;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+  font-weight: 50;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .username {
+    color: rgba(84, 84, 84, 0.827);
+    padding-left: 0;
+  }
+}
+
+.items > div {
+  padding-right: 10px; /* 设置间距 */
+  padding-left: 10px;
+  position: relative;
+}
+
+.items > div::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  height: 12px;
+  width: 1px;
+  background-color: #e5e6eb;
+}
+
+.items > div:last-child::after {
+  display: none; /* 最后一个 div 后面不显示分隔线 */
+}
+
+.tags {
+  display: flex;
+  flex-direction: row;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 14px;
+  font-weight: 50;
+  div:not(:last-child)::after {
+    content: "·"; /* 设置间隔字符 */
+    margin-right: 5px; /* 设置字符和下一个列表项之间的间距 */
+    margin-left: 5px;
+  }
+}
+
+.title {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

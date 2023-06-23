@@ -1,14 +1,17 @@
 import React, {useState} from 'react';
 import {Menu, MenuProps} from "antd";
-import {DesktopOutlined, FileOutlined, PieChartOutlined, TeamOutlined, UserOutlined} from "@ant-design/icons";
-import {useNavigate, useLocation} from "react-router-dom";
-import {SubMenuType} from "antd/es/menu/hooks/useItems";
+import {BookOutlined, CommentOutlined, HomeOutlined, PieChartOutlined, ToolOutlined} from "@ant-design/icons";
+import {useLocation, useNavigate} from "react-router-dom";
+import styles from './main-menu.module.scss'
+
+import log from '@/assets/img/logo/logo (1)11.png'
 
 type MenuItem = {
   label: string,
   key: string,
   icon: any,
-  children?: SubMenuItem[]
+  children?: SubMenuItem[],
+  disabled?: boolean
 }
 
 type SubMenuItem = {
@@ -16,60 +19,45 @@ type SubMenuItem = {
   key: string,
 }
 
-// function getItem(
-//   label: React.ReactNode,
-//   key: React.Key,
-//   icon?: React.ReactNode,
-//   children?: MenuItem[],
-// ): MenuItem {
-//   return {
-//     key,
-//     icon,
-//     children,
-//     label,
-//   } as MenuItem;
-// }
-//
-// const items: MenuItem[] = [
-//   getItem('栏目 1', '/page1', <PieChartOutlined/>),
-//   getItem('栏目 2', '/page2', <DesktopOutlined/>),
-//   getItem('User', 'sub1', <UserOutlined/>, [
-//     getItem('Tom', '3'),
-//     getItem('Bill', '4'),
-//     getItem('Alex', '5'),
-//   ]),
-//   getItem('Team', 'sub2', <TeamOutlined/>, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-//   getItem('Files', '9', <FileOutlined/>),
-// ];
-
 const items: MenuItem[] = [
+  // {
+  //   label: '',
+  //   key: '/home1',
+  //   icon: <img src={log} className={styles.log}/>,
+  //   disabled: true
+  // },
   {
-    label: '栏目1',
-    key: '/page1',
-    icon: <PieChartOutlined/>
+    label: '首页',
+    key: '/home',
+    icon: <HomeOutlined/>
   },
   {
-    label: '栏目2',
+    label: '文章',
+    key: '/articles',
+    icon: <BookOutlined/>
+  },
+  {
+    label: '留言',
     key: '/page2',
-    icon: <PieChartOutlined/>
+    icon: <CommentOutlined/>
   },
   {
-    label: '栏目3',
+    label: '工具',
     key: '/page3',
-    icon: <PieChartOutlined/>,
+    icon: <ToolOutlined/>,
     children: [
       {
-        label: '栏目301',
+        label: '正则表达式',
         key: '/page3/page301'
       },
       {
-        label: '栏目32',
+        label: 'Json格式化',
         key: '/page3/page302'
       },
     ]
   },
   {
-    label: '栏目4',
+    label: '其他',
     key: '/page4',
     icon: <PieChartOutlined/>,
     children: [
@@ -108,9 +96,9 @@ const MainMenu: React.FC = () => {
   };
 
   return (
-    <Menu theme="dark"
+    <Menu className={styles.menu}
           defaultSelectedKeys={[currentRoute.pathname]}
-          mode="inline" items={items}
+          mode="horizontal" items={items}
           onClick={menuClick}
           openKeys={openKeys} onOpenChange={onOpenChange}>
     </Menu>

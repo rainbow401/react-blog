@@ -1,0 +1,42 @@
+@import "var";
+
+.log {
+  width: 70px; /* 设置图像的宽度 */
+  height: 40px; /* 设置图像的高度 */
+  transform: scale(0.8); /* 根据需求设置缩放比例 */
+  transform: translateY(15px); /* 设置下移的距离 */
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  justify-content: space-around;
+}
+
+.others {
+  display: flex;
+  flex-direction: row;
+
+  .logOut {
+    margin-left: 5px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 15px;
+
+  .div {
+    min-height: calc(100vh - 94px);
+    min-width: calc(100vw - 15px);
+    max-width: calc(100vw - 15px);
+  }
+}
+
+.layout {
+  background: #f5f5f5;
+}
