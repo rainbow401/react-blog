@@ -11,14 +11,6 @@ export default defineConfig(async () => {
   return {
     plugins: [
       react(),
-      // styleImport({
-      //   resolves:[
-      //     AntdResolve()
-      //   ],
-      // })
-      mdx.default({
-        remarkPlugins: [[remarkCodeHike, { theme: "material-palenight" }]],
-      }),
     ],
     resolve: {
       alias: {
