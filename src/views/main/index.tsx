@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { Layout } from "antd";
 import MainMenu from "@/components/MainMenu";
-import MyAvatar from "@/views/main/header/avatar";
+import MyAvatar from "@/views/Avatar";
 import styles from "./main.module.scss";
 
 import log from "@/assets/img/logo/logo (1)11.png";

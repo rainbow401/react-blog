@@ -1,10 +1,12 @@
 import React, { memo } from "react";
+import { useParams } from "react-router-dom";
 
 import { theme } from "antd";
-import { useParams } from "react-router-dom";
+
+import styles from "./article-detail.module.scss";
+
 import Action from "./Action";
 import Content from "./Content";
-import styles from "./article-detail.module.scss";
 
 const article: Article = {
   id: 1,
@@ -17,7 +19,7 @@ const article: Article = {
   comment: 3,
   username: "闫志浩",
   tags: ["后端", "Java", "Spring"],
-  heart: 1
+  heart: 1,
 };
 
 const ArticleDetail = React.memo(() => {
@@ -27,17 +29,13 @@ const ArticleDetail = React.memo(() => {
   return (
     <div className={styles.main}>
       <div className={styles.action}>
-        <Action {...article}/>
+        <Action {...article} />
       </div>
       <div className={styles.content}>
         <Content />
       </div>
-      {/* <div className={styles.info} style={{ borderRadius: borderRadius }}>
-        <Info />
-      </div> */}
     </div>
   );
 });
-
 
 export default ArticleDetail;

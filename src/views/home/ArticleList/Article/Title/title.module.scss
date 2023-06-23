@@ -14,8 +14,7 @@
   }
 }
 
-
-.items > div{
+.items > div {
   padding-right: 10px; /* 设置间距 */
   padding-left: 10px;
   position: relative;
@@ -31,8 +30,6 @@
   width: 1px;
   background-color: #e5e6eb;
 }
-
-
 
 .items > div:last-child::after {
   display: none; /* 最后一个 div 后面不显示分隔线 */

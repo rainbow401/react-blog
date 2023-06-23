@@ -1,17 +1,16 @@
 .article {
-    margin-bottom: 10px;
-    ul {
-        // display: inline !important;
-        li {
-            width: 50px !important;
-        }
-
-        li:not(:last-child) {
-            border-inline-end: 0px solid #f0f0f0 !important;
-        }
+  margin-bottom: 10px;
+  ul {
+    li {
+      width: 50px !important;
     }
+
+    li:not(:last-child) {
+      border-inline-end: 0px solid #f0f0f0 !important;
+    }
+  }
 }
 
 .content {
-    color: rgba(0, 0, 0, 0.45);
+  color: rgba(0, 0, 0, 0.45);
 }

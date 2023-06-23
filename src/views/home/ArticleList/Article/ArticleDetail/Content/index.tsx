@@ -1,156 +1,40 @@
 import { memo, useEffect, useRef } from "react";
 
-import hljs from "highlight.js";
-import MarkdownIt from "markdown-it";
-import "./github.css";
-
-import mdKatex from "@traptitech/markdown-it-katex";
-import markdownItAnchor from "markdown-it-anchor";
-import mila from "markdown-it-link-attributes";
-
-import markdownItTocDoneRight from "markdown-it-toc-done-right";
+import "./MarkdownConfig/github-markdown.css";
+import "./MarkdownConfig/github.css";
 
 import styles from "./content.module.scss";
-import { data } from "./data2";
 
-import './github-markdown.css'
-
-const md = new MarkdownIt({
-  html: false,
-  linkify: true,
-  breaks: true,
-  typographer: true,
-  highlight: (str: string, lang: string, attrs: string): string => {
-    let content = str;
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        content = hljs.highlight(str, {
-          language: lang,
-          ignoreIllegals: false,
-        }).value;
-        console.log('===', hljs.highlight(str, {
-          language: lang,
-          ignoreIllegals: false,
-        }))
-      } catch (e) {
-        console.log(e);
-        return str;
-      }
-    } else {
-      content = md.utils.escapeHtml(str);
-    }
-
-    console.log(content, str, lang);
-    return `<pre class="hljs ${styles.pre}"><code>${content}</code></pre>`;
-  },
-});
-
-//  数学公式
-md.use(mdKatex, {
-  blockClass: "katexmath-block rounded-md p-[10px]",
-  errorColor: " #cc0000",
-});
-// 链接
-md.use(mila, { attrs: { target: "_blank", rel: "noopener" } });
-
-// 导航
-let navigation = "";
-let navigationIndex = 0;
-md.use(markdownItTocDoneRight, {
-  containerClass: "toc",
-  containerId: "toc",
-  listType: "ul",
-  listClass: `${styles.listClass}`,
-  itemClass: `${styles.itemClass}`,
-  linkClass: `${styles.linkClass}`,
-  callback: function (html: string, ast: any) {
-    //把目录单独列出来
-    navigation = html;
-  },
-  level: [1, 2],
-  slugify: (str: string) => {
-    return `${navigationIndex++}`;
-  },
-  format: (str: string) => {
-    return `<div id=navigation-index-${navigationIndex - 1} class="${
-      styles.item
-    }">${str}</div>`;
-  },
-});
-
-// 文章内容标题标签设置id
-let anchorIndex = 0;
-md.use(markdownItAnchor, {
-  level: [1, 2],
-  slugify: (str: string) => {
-    return `${anchorIndex++}`;
-  },
-});
+import { data } from "./MarkdownConfig/data2";
+import { handleClick, scrollEventListener, md, navigation, initActive } from './custom-markdown-it';
 
 function Content() {
-  const content = md.render(data);
   const contentRef = useRef(null);
   const navigationRef = useRef(null);
 
+  const content = md.render(data);
+
   useEffect(() => {
-    const containerNode: any = contentRef.current;
-    let currentNode: any;
-    const handleScroll = () => {
-      if (containerNode) {
-        let topEle;
-        const eles: any[] = containerNode.querySelectorAll(
-          `.${styles.content}> h1,h2`
-        );
+    let container: any = contentRef.current;
 
-        for (let i = 0; i < eles.length; i++) {
-          if (eles[i].getBoundingClientRect().top > 0) {
-            topEle = eles[i];
-            break;
-          }
-        }
-
-        if (topEle) {
-          activeNavigation(topEle);
-        }
-      }
+    initActive(container);
+    
+    // 滚动监听
+    const scrollHandler = () => {
+      scrollEventListener(container);
     };
-
-    const activeNavigation = (topEle: any) => {
-      if (topEle.id) {
-        const e = document.getElementById(`navigation-index-${topEle.id}`);
-        if (e) {
-          e.classList.add(`${styles.active}`);
-          if (currentNode && e != currentNode) {
-            currentNode.classList.remove(`${styles.active}`);
-          }
-          currentNode = e;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", scrollHandler);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", scrollHandler);
     };
   }, []);
-
-  const handleClick = (event: any) => {
-    // console.log(event.target.id.slice(17));
-    if (event.target.id) {
-      event.preventDefault();
-      const targetElement = document.getElementById(event.target.id.slice(17));
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
 
   return (
     <div className={styles.main}>
       <article
         ref={contentRef}
-        className={styles.content + ' markdown-body'}
+        className={styles.content + " markdown-body"}
         dangerouslySetInnerHTML={{ __html: content }}
       ></article>
       <div

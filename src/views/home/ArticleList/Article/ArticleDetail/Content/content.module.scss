@@ -7,16 +7,20 @@
   margin: 10px auto;
   user-select: text;
   font-size: 16px;
-
+  // margin-bottom: 100px
+  margin-bottom: 100px;
 }
 
 // markdown 内容
 .content {
-  padding: 10px;
+  padding: 10px 10px;
   background-color: white;
   border-radius: var(--common-border-radius);
   width: 80%;
+  // height: 100%;
   overflow: auto;
+  padding-top: 30px;
+  padding-bottom: 100px;
 }
 
 // 导航

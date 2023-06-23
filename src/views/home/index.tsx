@@ -1,17 +1,16 @@
-import React from "react";
-
-import { Card, theme } from "antd";
+import { theme } from "antd";
 
 import styles from "./home.module.scss";
-import Info from "@/views/home/Info";
-import Article from "./ArticleList/Article";
+
+import Info from "@/views/Home/Info";
 import ArticleList from "./ArticleList";
+
 
 function Index() {
   const {
     token: { colorBgContainer, borderRadius },
   } = theme.useToken();
-  console.log("home")
+  console.log("home");
 
   return (
     <div className={styles.main}>
