@@ -1,0 +1,31 @@
+.main {
+  &:not(:first) {
+    margin-top: 5px;
+  }
+  padding: 5px;
+  .tag {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-left: 8px;
+    color: black;
+    &:hover:not(.active) {
+      background-color: var(--gray-hovor);
+      border-radius: var(--border-radius-2);
+    }
+  }
+
+  .active {
+    background-color: var(--blue-selectd);
+    border-radius: var(--border-radius-2);
+    color: var(--blue-1);
+    font-weight: 400;
+  }
+
+  .tag:hover {
+  }
+
+  :active {
+  }
+}

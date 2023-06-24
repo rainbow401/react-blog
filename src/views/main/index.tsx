@@ -16,17 +16,17 @@ const main: React.FC = () => {
   return (
     <div className={styles.main}>
       <Layout className={styles.layout}>
-        <Header className={styles.header} style={{ background: "white" }}>
+        <Header className={styles.header} style={{ background: "white", height:60 }}>
           <div className={styles.logo}>
-            <img className={styles.log} src={log}></img>
+            {/* <img className={styles.log} src={log}></img> */}
           </div>
           <MainMenu />
           <div className={styles.others}>
             <MyAvatar></MyAvatar>
           </div>
         </Header>
-        <Content className={styles.content}>
-          <div className={styles.div}>
+        <Content>
+          <div className={styles.content}>
             <Suspense>
               <Outlet />
             </Suspense>

@@ -29,9 +29,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <React.Suspense>
       <BrowserRouter>
-        <ConfigProvider
-          theme={{token: { borderRadius: 8}}}
-        >
+        <ConfigProvider>
           <App/>
         </ConfigProvider>
       </BrowserRouter>

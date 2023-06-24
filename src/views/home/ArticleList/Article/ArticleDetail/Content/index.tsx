@@ -10,7 +10,6 @@ import { handleClick, scrollEventListener, md, navigation, initActive } from './
 
 function Content() {
   const contentRef = useRef(null);
-  const navigationRef = useRef(null);
 
   const content = md.render(data);
 
@@ -38,7 +37,6 @@ function Content() {
         dangerouslySetInnerHTML={{ __html: content }}
       ></article>
       <div
-        ref={navigationRef}
         className={styles.navigation}
         onClick={handleClick}
         dangerouslySetInnerHTML={{ __html: navigation }}

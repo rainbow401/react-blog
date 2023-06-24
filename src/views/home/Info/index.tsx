@@ -1,19 +1,11 @@
-import React from 'react';
 
-import styles from './info.module.scss';
-import {theme} from "antd";
+import styles from "./info.module.scss";
 
 function Index() {
-  const {
-    token: {colorBgContainer, borderRadius},
-  } = theme.useToken();
-  console.log("INFO")
+  console.log("INFO");
 
-  return (
-    <div className={styles.info} style={{background: colorBgContainer, borderRadius: borderRadius}}>
-      
-    </div>
-  );
+  return <div className={styles.info}>
+  </div>;
 }
 
 export default Index;

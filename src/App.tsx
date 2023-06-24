@@ -60,7 +60,7 @@ function App() {
   console.log(token);
 
   return (
-    <div className="App" style={{ minHeight: "100vh"}}>
+    <div className="App" style={{ minHeight: "95vh" , paddingBottom: '10px'}}>
       <BeforeRouterEnter></BeforeRouterEnter>
     </div>
   );

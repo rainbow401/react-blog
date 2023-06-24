@@ -4,20 +4,21 @@ import styles from "./home.module.scss";
 
 import Info from "@/views/Home/Info";
 import ArticleList from "./ArticleList";
-
+import TagList from "./TagList";
 
 function Index() {
-  const {
-    token: { colorBgContainer, borderRadius },
-  } = theme.useToken();
   console.log("home");
 
   return (
     <div className={styles.main}>
-      <div className={styles.left} style={{ borderRadius: borderRadius }}>
+      <div className={styles.left}>
+        <div className={styles.tag}>
+          <TagList></TagList>
+        </div>
+      </div>
+      <div className={styles.mid}>
         <ArticleList></ArticleList>
       </div>
-      <div style={{ width: 15 }}></div>
       <div className={styles.info}>
         <Info></Info>
       </div>

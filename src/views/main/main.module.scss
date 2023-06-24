@@ -30,11 +30,10 @@
   justify-content: center;
   margin-top: 15px;
 
-  .div {
-    min-height: calc(100vh - 94px);
-    min-width: calc(100vw - 15px);
-    max-width: calc(100vw - 15px);
-  }
+  min-height: calc(100vh - 150px);
+  min-width: calc(100vw - 15px);
+  max-width: calc(100vw - 15px);
+  
 }
 
 .layout {

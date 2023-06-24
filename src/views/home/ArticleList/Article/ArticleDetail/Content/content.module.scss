@@ -15,7 +15,7 @@
 .content {
   padding: 10px 10px;
   background-color: white;
-  border-radius: var(--common-border-radius);
+  border-radius: var(--border-radius-1);
   width: 80%;
   // height: 100%;
   overflow: auto;
@@ -27,7 +27,7 @@
 .navigation {
   position: fixed;
   right: 3%;
-  border-radius: var(--common-border-radius);
+  border-radius: var(--border-radius-1);
   height: 90vh;
   width: 20vw;
   .listClass {
@@ -43,7 +43,7 @@
           line-height: 22.5px;
         }
         .item:hover {
-          background-color: var(--gray-2);
+          color: var(--blue-1);
         }
       }
     }
@@ -92,7 +92,7 @@
 :not(pre) > code {
   font-weight: 600;
   color: var(--blue-1);
-  border-radius: var(--two-border-radius);
+  border-radius: var(--border-radius-2);
   padding: 0px 4px;
 }
 
