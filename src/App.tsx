@@ -5,6 +5,7 @@ import router from "./router";
 
 import './global.css'
 import { useToken } from "antd/es/theme/internal";
+import { TOKEN_KEY } from "./constant/Common";
 
 const BeforeRouterEnter = React.memo(() => {
   const location = useLocation();
@@ -16,14 +17,14 @@ const BeforeRouterEnter = React.memo(() => {
 
   if (
     location.pathname === "/login" &&
-    localStorage.getItem("react-admin-token")
+    localStorage.getItem(TOKEN_KEY)
   ) {
     return <ToIndex />;
   }
 
   if (
     location.pathname !== "/login" &&
-    !localStorage.getItem("react-admin-token")
+    !localStorage.getItem(TOKEN_KEY)
   ) {
     return <ToLogin />;
   }

@@ -6,7 +6,7 @@ import { Button, Form, Input, message } from "antd";
 import styles from "./login.module.scss";
 
 import { CaptchaAPI, LoginAPI } from "@/request/api";
-import { HTML_BASE64_PNG } from "@/constant/Common";
+import { HTML_BASE64_PNG, TOKEN_KEY } from "@/constant/Common";
 
 const Login: React.FC = () => {
   useEffect(() => {
@@ -48,7 +48,7 @@ const Login: React.FC = () => {
     console.log(loginAPIRes);
     if (loginAPIRes.code === 200) {
       message.success("登陆成功");
-      localStorage.setItem("react-admin-token", loginAPIRes.token);
+      localStorage.setItem(TOKEN_KEY, loginAPIRes.token);
       navigateTo("/page1");
       localStorage.removeItem("uuid");
     }
@@ -67,7 +67,7 @@ const Login: React.FC = () => {
 
   const onFinish = (values: any) => {
     message.success("登陆成功");
-    localStorage.setItem("react-admin-token", "test");
+    localStorage.setItem(TOKEN_KEY, "test");
     navigateTo("/home");
     localStorage.removeItem("uuid");
   };

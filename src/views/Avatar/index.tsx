@@ -5,6 +5,7 @@ import { LoginOutlined, RightCircleOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 
 import AvatarImg from "@/assets/img/img_3.png";
+import { TOKEN_KEY } from "@/constant/Common";
 
 const Index = () => {
   // 控制鼠标hover效果
@@ -20,7 +21,7 @@ const Index = () => {
   };
 
   const logOut = () => {
-    localStorage.removeItem("react-admin-token");
+    localStorage.removeItem(TOKEN_KEY);
     navigateTo("/login");
   };
 
