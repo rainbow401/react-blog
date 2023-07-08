@@ -13,12 +13,19 @@ interface CaptchaAPIRes {
 interface LoginAPIReq {
     username: string;
     password: string;
-    code: string;
-    uuid: string;
+    code?: string;
+    uuid?: string;
 }
 // 登录的响应类型约束
 interface LoginAPIRes{
-    msg: string;
+    message: string;
     code: number;
-    token: string;
+    success: boolean;
+    data: string;
+}
+
+
+interface Tag{
+    id: number,
+    nmae: string,
 }

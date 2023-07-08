@@ -15,6 +15,7 @@
     "axios": "^1.2.2",
     "classnames": "^2.3.2",
     "github-markdown-css": "^5.2.0",
+    "http-proxy-middleware": "^2.0.6",
     "markdown-it": "^13.0.1",
     "markdown-it-anchor": "^8.6.7",
     "markdown-it-link-attributes": "^4.0.1",

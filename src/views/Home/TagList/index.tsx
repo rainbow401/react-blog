@@ -4,9 +4,13 @@ import styles from "./tag-list.module.scss";
 
 import { data } from "./tag";
 import Tag from "./Tag/index";
+import { tagList } from "@/request/api";
 
 function Index() {
   console.log("tagList");
+  tagList().then((res) => {
+    console.log(res);
+  })
   const [selectId, setSelectId] = useState(-1);
 
   const handleClick = (id: number) => {

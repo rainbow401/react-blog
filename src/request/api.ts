@@ -4,4 +4,6 @@ import request from './index'
 export const CaptchaAPI = ():Promise<CaptchaAPIRes> => request.get('/prod-api/captchaImage')
 
 // 登录请求
-export const LoginAPI = (params:LoginAPIReq):Promise<LoginAPIRes> => request.post('/prod-api/login',params)
+export const LoginAPI = (params:LoginAPIReq):Promise<LoginAPIRes> => request.post('/user/login',params)
+
+export const tagList = (): Promise<Array<Tag>> => request.get('/tag/list');
