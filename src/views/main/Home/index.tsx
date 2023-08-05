@@ -2,9 +2,12 @@ import { theme } from "antd";
 
 import styles from "./home.module.scss";
 
-import Info from "@/views/Home/Info";
+import Info from "@/views/Main/Home/Info";
 import ArticleList from "./ArticleList";
 import TagList from "./TagList";
+import { Outlet } from "react-router-dom";
+import React, {Suspense} from "react";
+
 
 function Index() {
   console.log("home");

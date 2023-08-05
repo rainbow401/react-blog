@@ -3,7 +3,7 @@ import React, { useState, memo } from "react";
 import styles from "./tag-list.module.scss";
 
 import { data } from "./tag";
-import Tag from "./Tag/index";
+import Tag from './Tag/index';
 import { tagList } from "@/request/api";
 
 function Index() {

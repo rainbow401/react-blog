@@ -1,6 +1,4 @@
-import React, { useRef, memo } from "react";
-
-import { theme } from "antd";
+import React, {memo} from "react";
 
 import styles from "./tag.module.scss";
 import classNames from "classnames";

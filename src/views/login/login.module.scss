@@ -7,49 +7,10 @@
   background-position: center center;
 }
 
-.loginBox {
-  position: relative;
+.form {
+  width: 100%;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 60vh;
-  width: 70vw;
-  border-radius: 10px;
-}
-
-.items {
-  height: 100%;
-  width: 70%;
-  min-height: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  border-radius: 0px 10px 10px 0px;
-
-  .item {
-    margin-top: 20%;
-  }
-}
-
-.img {
-  height: 100%;
-  width: 30%;
-  background-image: url("@/assets/img/img_3.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  border-radius: 10px 0px 0px 10px;
-  opacity: 0;
-}
-
-.title {
-}
-
-.form {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
 }

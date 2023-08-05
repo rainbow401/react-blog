@@ -29,7 +29,7 @@ const ArticleDetail = React.memo(() => {
   return (
     <div className={styles.main}>
       <div className={styles.action}>
-        <Action {...article} />
+        {/*<Action {...article} />*/}
       </div>
       <div className={styles.content}>
         <Content />

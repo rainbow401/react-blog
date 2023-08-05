@@ -4,7 +4,6 @@ import { message, theme } from "antd";
 import router from "./router";
 
 import './global.css'
-import { useToken } from "antd/es/theme/internal";
 import { TOKEN_KEY } from "./constant/Common";
 
 const BeforeRouterEnter = React.memo(() => {
@@ -22,12 +21,12 @@ const BeforeRouterEnter = React.memo(() => {
     return <ToIndex />;
   }
 
-  if (
-    location.pathname !== "/login" &&
-    !localStorage.getItem(TOKEN_KEY)
-  ) {
-    return <ToLogin />;
-  }
+  // if (
+  //   location.pathname !== "/login" &&
+  //   !localStorage.getItem(TOKEN_KEY)
+  // ) {
+  //   return <ToLogin />;
+  // }
 
   return outlet;
 });
@@ -38,7 +37,7 @@ function ToLogin() {
   useEffect(() => {
     // 加载完组件之后执行这里的代码
     navigateTo("/login");
-    message.warning("您还没有登录，请登录后再访问！");
+    // message.warning("您还没有登录，请登录后再访问！");
   }, []);
   return <></>;
 }
@@ -55,14 +54,15 @@ function ToIndex() {
 }
 
 function App() {
+
+  const outlet = useRoutes(router);
+
   console.log("APP");
-
-  const token  = useToken();
-  console.log(token);
-
   return (
-    <div className="App" style={{ minHeight: "95vh" , paddingBottom: '10px'}}>
-      <BeforeRouterEnter></BeforeRouterEnter>
+    <div className="App" style={{ minHeight: "100vh"}}>
+      {/*token路由守护*/}
+      {/*<BeforeRouterEnter></BeforeRouterEnter>*/}
+      {outlet}
     </div>
   );
 }

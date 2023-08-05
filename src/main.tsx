@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 // 样式初始化
 // import "reset-css"
-
 //UI框架
 import {ConfigProvider} from 'antd';
 
@@ -15,7 +14,6 @@ import {BrowserRouter} from "react-router-dom"
 // 状态管理
 import {Provider} from 'react-redux'
 import store from '@/store'
-import { log } from 'console';
 import './global.css'
 
 

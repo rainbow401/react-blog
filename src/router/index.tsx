@@ -3,15 +3,15 @@ import {Navigate} from "react-router-dom"
 import React, {lazy} from "react"
 import Login from "@/views/Login"
 import Main from "@/views/Main";
-import Home from "@/views/Home";
-import ArticleList from "@/views/Home/ArticleList";
-import ArticleDetail from "@/views/Home/ArticleList/Article/ArticleDetail";
+import Home from "@/views/Main/Home";
+import ArticleList from "@/views/Main/Home/ArticleList";
+import ArticleDetail from "@/views/Main/Home/ArticleList/Article/ArticleDetail";
+import UploadArticle from "@/views/Main/Avatar/UploadArticle";
 
 // const About = lazy(() => import("../views/About"))
 // const User = lazy(() => import("../views/User"))
 // const Page1 = lazy(() => import("../views/page1"))
 // const Page2 = lazy(() => import("../views/Page2"))
-
 
 
 const routes = [
@@ -25,13 +25,18 @@ const routes = [
     children: [
       {
         path: "/home",
-        element: <Home/>
+        element: <Home/>,
+        children: []
       },
       {
         path: "/articles",
         element: <ArticleList/>,
       },
-      {path: "/articles/detail/:id", element: <ArticleDetail/>}
+      {path: "/articles/detail/:id", element: <ArticleDetail/>},
+      {
+        path: "/upload",
+        element: <UploadArticle/>
+      },
     ]
   },
   {

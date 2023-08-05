@@ -1,0 +1,67 @@
+.avatar {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: normal;
+}
+
+.loginOut {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.userAction {
+  width: 100px;
+  height: 160px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%);
+  display: none;
+  padding: 4px 4px 4px 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.avatar:hover .userAction {
+  display: block;
+  z-index: 1000;
+}
+
+.avatar:hover .noAuthUserAction {
+  display: block;
+  z-index: 1000;
+}
+
+.noAuthUserAction {
+  width: 100px;
+  height: 55px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%);
+  display: none;
+  padding: 4px 4px 4px 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.actionItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  cursor: pointer;
+  line-height: 50px;
+}

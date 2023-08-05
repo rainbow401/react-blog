@@ -6,6 +6,8 @@ import styles from "./article-list.module.scss";
 import './antd-ovrried.css'
 
 import Article from "./Article";
+import {useRoutes} from "react-router-dom";
+import router from "@/router";
 
 const data: Array<Article> = [
   {
@@ -60,11 +62,14 @@ const data: Array<Article> = [
 
 function ArticleList() {
   console.log("ArticleList");
+
   return (
     <div className={styles.main}>
       {data.map((e: Article) => (
         <Article key={e.id} {...e}></Article>
       ))}
+      <div>
+      </div>
     </div>
   );
 }
