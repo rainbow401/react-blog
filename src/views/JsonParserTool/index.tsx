@@ -42,7 +42,7 @@ function index() {
         <div className={styles.viewContent}>
           <div className={styles.title}>视图</div>
           <div className={styles.content}>
-            <div id={'jsoneditor'}>
+            <div>
               <Tree treeData={treeData}/>
             </div>
           </div>
