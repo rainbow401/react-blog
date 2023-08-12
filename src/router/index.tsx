@@ -7,6 +7,7 @@ import Home from "@/views/Main/Home";
 import ArticleList from "@/views/Main/Home/ArticleList";
 import ArticleDetail from "@/views/Main/Home/ArticleList/Article/ArticleDetail";
 import UploadArticle from "@/views/Main/Avatar/UploadArticle";
+import JsonParserTool from "@/views/JsonParserTool";
 
 // const About = lazy(() => import("../views/About"))
 // const User = lazy(() => import("../views/User"))
@@ -37,6 +38,10 @@ const routes = [
         path: "/upload",
         element: <UploadArticle/>
       },
+      {
+        path: 'json/parser',
+        element: <JsonParserTool/>
+      }
     ]
   },
   {

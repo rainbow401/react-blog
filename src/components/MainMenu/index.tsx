@@ -52,7 +52,7 @@ const items: MenuItem[] = [
       },
       {
         label: 'Json格式化',
-        key: '/page3/page302'
+        key: '/json/parser'
       },
     ]
   },
