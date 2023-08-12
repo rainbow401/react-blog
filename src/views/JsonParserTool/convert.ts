@@ -12,11 +12,11 @@ interface TreeNode {
   children: TreeNode[];
 }
 
-export default function convertTree(obj: any): DataNode {
+export default function convertTree(obj: any): DataNode[] {
   let type;
   let title;
   let value;
-  let children;
+  let children: DataNode[]= [];
 
   title = 'json'
 
@@ -42,13 +42,7 @@ export default function convertTree(obj: any): DataNode {
     children: children,
   }
 
-  console.log(`result: ${JSON.stringify(result)}`)
-
-  return {
-    key: uuid(),
-    title: title,
-    children: children,
-  };
+  return children;
 }
 
 function traversalArray(obj: any[]): DataNode[] {
@@ -69,8 +63,6 @@ function traversalArray(obj: any[]): DataNode[] {
     }
   }
 
-  console.log(`array: ${result}`)
-
   return result;
 }
 
@@ -88,7 +80,6 @@ function traversalObj(obj: any): DataNode[] {
     title = key;
     value = obj[key];
 
-    console.log(`key${key}`)
     let e = obj[key];
 
     if (typeof e == 'object') {

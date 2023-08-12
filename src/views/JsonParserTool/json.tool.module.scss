@@ -4,7 +4,7 @@
   width: 80%;
   height: 85vh;
 
-  .title{
+  .title {
     padding-left: 5px;
     padding-top: 5px;
     color: var(--blue-1);
@@ -25,20 +25,43 @@
 
     flex-direction: column;
     width: 60%;
+    height: inherit;
 
     background-color: var(--backgroud-color-1);
     border-radius: var(--border-radius-1);
     border: 1px solid black;
     margin-left: 10px;
 
-    overflow-y: auto;
+    .content {
+      overflow-y: auto;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      .tree {
+      }
+    }
+
   }
 
-  .content {
-  }
+
+
 
   .action {
     padding: 5px;
     border-bottom: 1px solid black;
   }
 }
+
+///* 自定义滚动条样式，包括圆角 */
+//div::-webkit-scrollbar {
+//  width: 5px;
+//  border-radius: 10px;
+//}
+//
+//div::-webkit-scrollbar-thumb {
+//  background-color: #888;
+//  border-radius: 50px; /* 设置圆角 */
+//}
+//
+//div::-webkit-scrollbar-track {
+//  background-color: #f1f1f1;
+//}

@@ -1,25 +1,32 @@
-import React, {memo, useState} from "react";
+import React, {memo, useEffect, useState} from "react";
 import styles from './json.tool.module.scss'
 import {Button, Tree} from "antd";
 import TextArea from "antd/es/input/TextArea";
-import {data} from './data2';
 import convertTree, {DataNode} from './convert'
+import {data} from "@/views/JsonParserTool/data";
 
 function index() {
   const [value, setValue] = useState('');
   const [treeData, setTreeData] = useState<DataNode[]>([]);
-  const format = () => {
+  const [defaultExpandAll, setDefaultExpandAll] = useState<boolean>(true);
+  const [expandedKeys, setExpandedKeys] = useState<string[]>([]);
 
-    console.log('JSON.parse(data)', JSON.parse(data))
-    const treeData: DataNode = convertTree(JSON.parse(data));
-    let children: DataNode[];
-    if (treeData.children) {
-      children = treeData.children;
-    } else {
-      children = [];
+
+  const format = () => {
+    console.log('format')
+    try {
+      setTreeData([]);
+      setTreeData(convertTree(JSON.parse(value)));
+    } catch (e) {
+      alert('格式错误');
+      return [];
     }
-    setTreeData(children);
   }
+
+
+  useEffect(() => {
+    console.log('useEffect');
+  }, []);
 
 
   return (
@@ -33,7 +40,6 @@ function index() {
             <TextArea
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
-                placeholder=""
                 autoSize={{minRows: 19, maxRows: 19}}
                 bordered={false}
             />
@@ -42,9 +48,7 @@ function index() {
         <div className={styles.viewContent}>
           <div className={styles.title}>视图</div>
           <div className={styles.content}>
-            <div>
-              <Tree treeData={treeData}/>
-            </div>
+            {treeData.length > 0 && <Tree treeData={treeData} defaultExpandAll={defaultExpandAll} virtual={false}/>}
           </div>
         </div>
       </div>
