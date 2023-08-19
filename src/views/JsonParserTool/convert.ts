@@ -5,13 +5,6 @@ export interface DataNode {
   children?: DataNode[];
 }
 
-interface TreeNode {
-  type: string;
-  title: string;
-  value: any;
-  children: TreeNode[];
-}
-
 export default function convertTree(obj: any): DataNode[] {
   let type;
   let title;
